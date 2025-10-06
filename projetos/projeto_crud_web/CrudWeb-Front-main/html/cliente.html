@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chamada favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <!-- Chamada CSS -->
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Cliente | ERP</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Inicio do cabecalho -->
+        <header>
+            <!-- Menu suspenso -->
+            <div class="menu">
+                <button>Menu &#9662;</button>
+                <div class="menu-opcoes">
+                    <a href="../html/pagina_principal.html">Tela Principal</a>
+                    <a href="../html/produto.html">Produtos</a>
+                    <a href="../html/login.html">Sair</a>
+                </div>
+            </div>
+            <!-- Botão centralizado no header -->
+            <div class="cliente-produto">
+                <button id="botao-cliente"><a href="../html/cliente.html">Clientes</a></button>
+            </div>
+            <img src="../images/logo.png" alt="Logo" width="40px">
+        </header>
+        <!-- Fim do cabecalho -->
+
+        <!-- Modal de Cadastro de Cliente -->
+        <button @click="exibirModal" id="criar">Cadastrar Cliente</button>
+        <div class="modal" v-show="exibirFormulario">
+            <form @submit.prevent="enviarCliente">
+                <h1>Cadastro</h1>
+                <input placeholder="Cliente:" type="text" id="nome" v-model="dadosCliente.nome" required>
+        
+                <input placeholder="CPF/CNPJ:" type="number" id="cpfOuCnpj" v-model="dadosCliente.cpfOuCnpj" required>
+        
+                <input placeholder="Email:" type="email" id="email" v-model="dadosCliente.email" required>
+
+                <input placeholder="Telefone:" type="tel" id="telefone" v-model="dadosCliente.telefone"></input>
+        
+                <button type="submit">Confirmar</button>
+                <button @click="cancelarFormulario" type="button">Cancelar</button>
+          </form>
+        </div>
+        <!-- Tabela de Clientes -->
+        <div class="conteudo">
+            <div v-if="clientes.length > 0">
+                <h2>Lista de Clientes</h2>
+                <div class="tabela-clientes">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF/CNPJ</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="cliente in clientes" :key="cliente.id">
+                                <td id="negrito">{{ cliente.nome }}</td>
+                                <td>{{ cliente.cpfOuCnpj }}</td>
+                                <td>{{ cliente.email }}</td>
+                                <td>{{ cliente.telefone }}</td>
+                                <td>
+                                    <button @click ="exibirModalEdicao(cliente)" class="btn-editar">Editar</button>
+                                    <!-- Modal Edição de cliente -->
+                                    <div class="modal" v-show="exibirFormularioEdicao">
+                                        <form @submit.prevent="editarCliente">
+                                            <h1>Alterar</h1>
+                                            <input placeholder="Cliente:" type="text" id="nome" v-model="dadosCliente.nome" required>
+        
+                                            <input placeholder="CPF/CNPJ:" type="number" id="cpfOuCnpj" v-model="dadosCliente.cpfOuCnpj" required>
+                                    
+                                            <input placeholder="Email:" type="email" id="email" v-model="dadosCliente.email" required>
+                            
+                                            <input placeholder="Telefone:" type="tel" id="telefone" v-model="dadosCliente.telefone"></input>
+                                            <button type="submit">Salvar</button>
+                                            <button @click="cancelarFormularioEdicao" type="button">Cancelar</button>
+                                        </form>
+                                    </div>
+                                    <button @click="exibirModalExclusao(cliente)" class="btn-excluir">Excluir</button>
+                                    <!-- Modal Exclusão de cliente -->
+                                    <div class="modal_exclusao" v-show="exibirFormularioExclusao">
+                                        <div class="confirmacao-exclusao">
+                                            <p><strong>Essa ação é irreversível. Confirma a exclusão do Cliente?</strong></p>
+                                            <button @click="confirmarExclusao">Sim</button>
+                                            <button @click="cancelarFormularioExclusao">Não</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Chamada Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Chamada JS -->
+    <script src="../script/cliente.js"></script>
+</body>
+</html>

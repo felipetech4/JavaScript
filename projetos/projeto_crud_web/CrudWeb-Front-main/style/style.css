@@ -1,0 +1,454 @@
+/* Optei por deixar o estilo de todas as janelas nesse arquivo */
+/* Dividi as janelas por bloco */
+/* Bloco 1 é o estilo do header de todas páginas */
+/* Bloco 2 é o estilo da página principal */
+/* Bloco 3 é o estilo da página de cliente e de produto */
+/* Bloco 4 é o estilo responsivo */
+
+
+
+
+/* Bloco 1 */
+/* Fonte importada */
+@font-face {
+    font-family: 'Software';
+    src: url(../font/Company.otf);
+}
+
+/* Variavel de texto */
+:root{
+    --fonte-normal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-titulo: 'Software', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Variavel de cor */
+:root{
+    --cor-azul-padrao: #3498db;
+    --cor-azul-hover: #0056b3; 
+    --cor-branco-padrao: #fff;
+    --cor-cinza-padrao: #ccc;
+    --cor-cinza-escuro: #333;
+    --cor-cinza-hover: rgba(255, 255, 255, 0.1); 
+}
+
+/* Variavel Global */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--fonte-normal);
+}
+
+/* HTML Responsivo */
+html, body {
+    min-height: 100vh;
+}
+
+/* Cabecalho fixo e com sombreamento embaixo */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    padding: 2px;
+    background-color: var(--cor-azul-padrao);
+    box-shadow: 0 0 4px #00000025, 0 4px 8px #00000050;
+    z-index: 1000; /* Garante que o cabeçalho esteja acima de outros elementos */
+}
+
+/* Todos os botoes dentro do cabecalho*/
+header button {
+    font-size: 1.3em;
+    background: none;
+    border: none;
+    color: var(--cor-branco-padrao);
+    transition: background-color 0.3s;
+    font-family: var(--fonte-titulo);
+    cursor: pointer;
+}
+
+/* Logo dentro do cabecalho*/
+header img {
+    padding: 2px 5px;
+}
+
+/* Interacao ao passar o mouse button */
+header button:hover {
+    background-color: var(--cor-cinza-hover);
+    border-radius: 10px;
+}
+
+/* Devido a ajustes, tive que deixar um estilo para todos os botões */
+button {
+    font-size: 1em;
+    background: none;
+    border: none;
+    background-color: var(--cor-azul-padrao);
+    color: var(--cor-branco-padrao);
+    transition: background-color 0.3s;
+    font-family: var(--fonte-normal);
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+button:hover {
+    background-color: var(--cor-azul-hover);
+}
+
+/* Classe de todo o menu */
+.menu {
+    display: flex;
+    position: relative;
+}
+
+/* Botao de dentro da classe Menu */
+.menu button {
+    padding: 5px 10px;
+}
+
+/* Menu suspenso */
+.menu-opcoes {
+    display: none;
+    position: absolute;
+    background-color: var(--cor-azul-hover);
+    min-width: 150px;
+    margin-top: 40px;
+    margin-left: 2px;
+    box-shadow: 0px 8px 16px 0px #00000033;
+    border-radius: 10px;
+}
+
+/* Fonte do menu suspenso*/
+.menu-opcoes a {
+    display: block;
+    text-decoration: none;
+    color: var(--cor-branco-padrao);
+    padding: 8px 0px 10px 10px;
+    border-radius: 10px;
+}
+
+.menu-opcoes a:hover {
+    background-color: var(--cor-cinza-hover);
+}
+
+.menu:hover .menu-opcoes {
+    display: block;
+}
+
+/* Botao Cliente e Produto no centro do cabecalho */
+.cliente-produto {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+/* Somente botao do cliente e do produto juntos */
+.cliente-produto button {
+    padding: 5px 20px;
+}
+
+/* Como adicionei um link dentro do button, precisei dar estilo na fonte do link */
+.cliente-produto a {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-branco-padrao);
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Body Pagina_Principal */ /* Bloco 2 */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Estilo dos gráficos */
+.chart {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.chart-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+canvas {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 20px;
+}
+
+/* Optei por criar variável de cores para o gráfico */
+:root {
+    --cor-texto: #000000;
+    --cor-fundo: #dbe2ef;
+    --cor-destaque: #404b69;
+    --cor-botao: #d9bf77;
+    --cor-grafico-top10: #82b74b;
+    --cor-grafico-zero-negativo: #d9534f;
+}
+
+.fundo_principal {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+#titulo {
+    padding-top: 20px;
+    color: var(--cor-cinza-escuro);
+}
+
+.titulo_grafico {
+    color: var(--cor-cinza-escuro);
+    display: flex;
+    font-size: small;
+    padding-top: 80px;
+}
+
+.texto_top-10 {
+    margin-left: 15%;
+    text-align: left;
+}
+
+.texto_negativo {
+    margin-left: 20%;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Body Cliente e Produto*/ /* Bloco 3 */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.032);
+  }
+
+  form h1 {
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+
+  form button {
+    padding: 10px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+  }
+
+  .modal {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    width: 300px;
+    box-sizing: border-box;
+  }
+
+  input, textarea {
+    width: 95%;
+    max-width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 30px;
+  }
+
+#criar {
+    display: flex;
+    margin: 60px 20px 0px auto;
+    font-size: 1.3em;
+    cursor: pointer;
+    background-color: var(--cor-azul-padrao);
+    color: var(--cor-branco-padrao);
+    transition: background-color 0.3s;
+    font-family: var(--fonte-normal);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 4px #00000025, 0 4px 8px #00000050;
+}
+
+#criar:hover {
+    background-color: var(--cor-azul-hover);
+}
+
+.conteudo {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border-bottom: 1px solid var(--cor-cinza-padrao);
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th:nth-child(5), td:nth-child(5) {
+    width: 150px;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+tbody button {
+    font-size: 1.1em;
+    background: none;
+    border: none;
+    background-color: var(--cor-azul-padrao);
+    color: var(--cor-branco-padrao);
+    transition: background-color 0.3s;
+    font-family: var(--fonte-normal);
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+tbody button:hover {
+    background-color: var(--cor-azul-hover);
+}
+
+.btn-excluir:hover {
+    background-color: red;
+    color: var(--cor-branco-padrao);
+}
+
+.confirmacao-exclusao {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmacao-exclusao p {
+    margin-bottom: 20px;
+}
+
+.confirmacao-exclusao button {
+    background: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.confirmacao-exclusao button:hover {
+    background: #c82333;
+}
+
+.modal_exclusao {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsivo Bloco 4*/    
+@media screen and (max-width: 600px) {
+    #negrito {
+        font-weight: bold;
+    }
+
+    th, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        border-top: 1px solid var(--cor-cinza-padrao);
+        padding: 10px 0;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    .botoes-acao {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .botoes-acao button {
+        width: 50%;
+    }
+}

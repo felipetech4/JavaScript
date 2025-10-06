@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Manipulação de Dados</title>
+</head>
+<body>
+    <h1>Testando Manipulação de Dados</h1>
+
+    <hr>
+
+    <script>
+        alert('Olá! Eu sou a caixa ALERT e estou aqui apenas para informar que a caixa PROMPT irá coletar alguns dados para interagir com você!')
+
+        fraseNome = 'Olá! Tudo bem? Para interagir com você, me informe o seu nome abaixo:'
+        var nome = prompt(fraseNome)  // Pega o prompt que o usuário vai digitar e armazena na variável nome.
+        fraseNumero1 = `Perfeito ${nome}! Agora preciso que você informe um número qualquer:`
+        var n1 = Number(prompt(fraseNumero1)) // Pega o prompt que o usuário vai digitar e armazena na variável n1.
+        fraseNumero2 = `Anotei o primeiro número! Agora preciso de mais um número:`
+        var n2 = Number(prompt(fraseNumero2)) // Pega o prompt que o usuário vai digitar e armazena na variável n2.
+        var soma = n1 + n2
+
+        document.write(`${nome}, aqui está a soma dos números que você digitou (${n1} + ${n2}) = ${soma}.</br>`) //Escreve no documento, concatenando com as variáveis.
+
+        document.write(`Outras interações que consigo fazer é por exemplo, deixar o seu nome todo em letras Maiúsculas, veja: ${nome.toUpperCase()}.</br>`) //Transforma o nome todo em maiúsculo.
+
+        document.write(`Também consigo em mínusculo: ${nome.toLowerCase()}.</br>`) //Transforma o nome todo em minúsculo
+
+        document.write(`Consigo mudar as casas decimais do número e mudar o ponto por vírgula: ${soma.toFixed(2).replace(".",",")}.</br>`) //Adiciona 2 casas decimais no número da soma e muda a pontuação de ponto para vírgula.
+
+        document.write(`Consigo informar a quantidade de letras em uma variável, como exemplo, seu nome tem ${nome.length} letras!</br>`) // Informa a quantidade de letras da variável nome.
+
+        document.write(`E pra finalizar, consigo mudar a formatação do número, para um formado monetário, veja: ${soma.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`) //Transforma a variável soma em um valor monetário brasileiro (R$).
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* Fonte importada */
+@font-face {
+    font-family: 'Software';
+    src: url(../font/Company.otf);
+}
+
+/* Variavel de texto */
+:root{
+    --fonte-normal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-titulo: 'Software', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Variavel de cor */
+:root{
+    --cor-azul-padrao: #007bff;
+    --cor-azul-hover: #0056b3; 
+    --cor-branco-padrao: #fff;
+    --cor-cinza-padrao: #ccc;
+    --cor-cinza-escuro: #333;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url(../images/fundo_login.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Inicio Quadro de Login */
+.caixa-login {
+    background-color: var(--cor-branco-padrao);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 300px;
+    width: calc(100% + 10%);
+    min-height: 50vh;
+}
+
+h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 3em;
+    color: var(--cor-cinza-escuro);
+    background-color: var(--cor-branco-padrao);
+    margin-bottom: 20px;
+}
+
+.caixa-input {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-family: var(--fonte-normal);
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--cor-cinza-escuro);
+}
+
+input {
+    font-size: 1em;
+    width: 91%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--cor-cinza-padrao);
+    border-radius: 3px;
+}
+
+button {
+    font-size: 1em;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: var(--cor-azul-padrao);
+    color: var(--cor-branco-padrao);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--cor-azul-hover);
+}
+
+.erro {
+    color: red;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+/* Fim Quadro de Login */
+
+/* UX em CSS */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-cinza-escuro);
+    color: var(--cor-branco-padrao);
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+abbr {
+    text-decoration: none;
+}

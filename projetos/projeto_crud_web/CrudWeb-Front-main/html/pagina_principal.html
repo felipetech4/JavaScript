@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chamada favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <!-- Chamada CSS -->
+    <link rel="stylesheet" href="../style/style.css">
+    <!-- Chamada Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Home - ERP</title>
+</head>
+
+<body class="fundo_principal">
+    <!-- Inicio do cabecalho -->
+    <header>
+        <div class="menu">
+            <button>Menu &#9662;</button>
+            <div class="menu-opcoes">
+                <a href="../html/login.html">Sair</a>
+            </div>
+        </div>
+        <div class="cliente-produto">
+            <button id="botao-cliente"><a href="../html/cliente.html">Clientes</a></button>
+            <button id="botao-produto"><a href="../html/produto.html">Produtos</a></button>
+        </div>
+        <img src="../images/logo.png" alt="Logo" width="40px">
+    </header>
+    <!-- Fim do Cabecalho -->
+
+    <!-- Ínicio Títulos -->
+    <h1 id="titulo">Bem-vindo ao Sistema de Gestão Empresarial (ERP)</h1>
+    <div class="titulo_grafico">
+        <h2 class="texto_top-10">Top 10 Produtos com Maior Estoque</h2>
+        <h2 class="texto_negativo">Produtos com Quantidade Zerada ou Negativa</h2>
+    </div>
+    <!-- Fim Títulos -->
+
+    <!-- Gráficos usando Canvas -->
+    <div class="chart-container">
+        <!-- 10 produtos com maior estoque -->
+        <canvas id="chartTop10"></canvas>
+
+        <!-- Quantidade zerada ou negativa -->
+        <canvas id="chartZeroNegativo"></canvas>
+    </div>
+
+    <!-- Chamada JS -->
+    <script src="../script/pagina_principal.js"></script>
+</body>
+
+</html>

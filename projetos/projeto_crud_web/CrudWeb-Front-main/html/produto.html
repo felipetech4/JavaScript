@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chamada favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <!-- Chamada CSS -->
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Produto | ERP</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Inicio do cabecalho -->
+        <header>
+            <!-- Menu suspenso -->
+            <div class="menu">
+                <button>Menu &#9662;</button>
+                <div class="menu-opcoes">
+                    <a href="../html/pagina_principal.html">Tela Principal</a>
+                    <a href="../html/cliente.html">Clientes</a>
+                    <a href="../html/login.html">Sair</a>
+                </div>
+            </div>
+            <!-- Botão centralizado no header -->
+            <div class="cliente-produto">
+                <button id="botao-produto"><a href="../html/produto.html">Produtos</a></button>
+            </div>
+            <img src="../images/logo.png" alt="Logo" width="40px">
+        </header>
+        <!-- Fim do cabecalho -->
+
+        <!-- Modal de Cadastro de Produto -->
+        <button @click="exibirModal" id="criar">Cadastrar Produto</button>
+        <div class="modal" v-show="exibirFormulario">
+            <form @submit.prevent="enviarProduto">
+                <h1>Cadastro</h1>
+                <input placeholder="Nome do Produto:" type="text" id="nome" v-model="dadosProduto.nome" required>
+        
+                <input placeholder="Quantidade:" type="number" id="quantidade" v-model="dadosProduto.quantidadeEstoque" required>
+        
+                <input placeholder="Valor:" type="number" id="valor" step="0.01" v-model="dadosProduto.valor" required>
+
+                <textarea placeholder="Observação:" id="observacao" v-model="dadosProduto.observacao"></textarea>
+        
+                <button type="submit">Confirmar</button>
+                <button @click="cancelarFormulario" type="button">Cancelar</button>
+          </form>
+        </div>
+        <!-- Tabela de Produtos -->
+        <div class="conteudo">
+            <div v-if="produtos.length > 0">
+                <h2>Lista de Produtos</h2>
+                <div class="tabela-produtos">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Quantidade</th>
+                                <th>Valor</th>
+                                <th>Observação</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="produto in produtos" :key="produto.id">
+                                <td id="negrito">{{ produto.nome }}</td>
+                                <td>{{ produto.quantidadeEstoque }}</td>
+                                <td>R$ {{ produto.valor }}</td>
+                                <td>{{ produto.observacao }}</td>
+                                <td>
+                                    <button @click ="exibirModalEdicao(produto)" class="btn-editar">Editar</button>
+                                    <!-- Modal Edição de produto -->
+                                    <div class="modal" v-show="exibirFormularioEdicao">
+                                        <form @submit.prevent="editarProduto">
+                                            <h1>Alterar</h1>
+                                            <input placeholder="Nome do Produto:" type="text" id="nome" v-model="dadosProduto.nome" required>
+                                            <input placeholder="Quantidade:" type="number" id="quantidade" v-model="dadosProduto.quantidadeEstoque" required>
+                                            <input placeholder="Valor:" type="number" id="valor" step="0.01" v-model="dadosProduto.valor" required>
+                                            <textarea placeholder="Observação:" id="observacao" v-model="dadosProduto.observacao"></textarea>
+                                            <button type="submit">Salvar</button>
+                                            <button @click="cancelarFormularioEdicao" type="button">Cancelar</button>
+                                        </form>
+                                    </div>
+                                    <button @click="exibirModalExclusao(produto)" class="btn-excluir">Excluir</button>
+                                    <!-- Modal Exclusão de produto -->
+                                    <div class="modal_exclusao" v-show="exibirFormularioExclusao">
+                                        <div class="confirmacao-exclusao">
+                                            <p><strong>Essa ação é irreversível. Confirma a exclusão do Produto?</strong></p>
+                                            <button @click="confirmarExclusao">Sim</button>
+                                            <button @click="cancelarFormularioExclusao">Não</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Chamada Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Chamada JS -->
+    <script src="../script/produto.js"></script>
+</body>
+</html>
